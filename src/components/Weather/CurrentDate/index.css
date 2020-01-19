@@ -1,0 +1,49 @@
+.Current-date {
+  width: 500px;
+}
+
+.Current-date-main {
+  display: flex;
+  flex-direction: row;
+}
+
+.Current-date-degree {
+  font-weight: bold;
+  font-size: 120px;
+  line-height: 200px;
+  /* identical to box height */
+
+  text-transform: uppercase;
+
+  color: #FFFFFF;
+  display: flex;
+}
+
+.Current-date-type {
+  width: 130px;
+  margin-left: 30px;
+  background-image: url('../../.././images/weather/sn.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.Current-date-info {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  /* or 168% */
+
+  text-transform: uppercase;
+
+  color: #FFFFFF;
+}
+
+.Current-date-info span {
+  margin-right: 15px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+
+  color: #FFFFFF;
+}
