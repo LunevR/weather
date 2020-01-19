@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Weather/Header/index.jsx';
+import CurrentDate from './components/Weather/CurrentDate/index.jsx';
+import NextDate from './components/Weather/NextDate/index.jsx';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="App-overlay">
+        <div className="App-container">
+          <div className="App-column">
+            <Header />
+            <CurrentDate />
+          </div>
+          <div className="App-column">
+            {[20,21,22,23,24].map((day, num) => <NextDate key={num} day={day}/>)}
+            <button className="App-search">Получить информацию</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
