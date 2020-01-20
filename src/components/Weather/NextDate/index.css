@@ -28,9 +28,11 @@
 
 .Next-date-type {
   width: 25px;
-  background-image: url('../../.././images/weather/sn.svg');
-  background-position: center;
-  background-repeat: no-repeat;
+  display: flex;
+}
+
+.Next-date-type img {
+  width: 25px;
 }
 
 .Next-date-info {
