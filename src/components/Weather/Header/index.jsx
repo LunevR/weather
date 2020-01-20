@@ -8,9 +8,8 @@ class Header extends Component {
       <div className="Header">
         <div className="Header-city">
           { this.props.city || 'City' }
-          <br /> { this.props.country || 'Country' }
         </div>
-        <div className="Header-date">{ moment().format('ddd DD MMMM') }</div>
+        <div className="Header-date">{ moment().format('dddd DD MMMM') }</div>
       </div>
     );
   }
