@@ -22,8 +22,8 @@ class App extends Component {
 
       days.push(
         <NextDate
-          key={i + 1}
-          dayDiff={i + 1}
+          key={ i + 1 }
+          dayDiff={ i + 1 }
           minTemp={ info ? info.minTemp : undefined }
           maxTemp={ info ? info.maxTemp : undefined }
           wind={ info ? info.wind : undefined }
