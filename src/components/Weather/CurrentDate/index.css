@@ -5,6 +5,7 @@
 .Current-date-main {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .Current-date-degree {
