@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Weather/Header/index.jsx';
 import CurrentDate from './components/Weather/CurrentDate/index.jsx';
 import NextDate from './components/Weather/NextDate/index.jsx';
+import Button from './components/Common/Button/index.jsx';
 import axios from 'axios';
 
 class App extends Component {
@@ -77,10 +78,10 @@ class App extends Component {
             </div>
             <div className="App-column">
               { this.createExtraDays() }
-              <button
-                className="App-search"
-                onClick={this.getWeather}
-              >Get information</button>
+              <Button
+                text="Get weather"
+                click={ this.getWeather }
+              />
             </div>
           </div>
         </div>
