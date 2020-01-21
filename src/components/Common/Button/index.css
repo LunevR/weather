@@ -1,0 +1,15 @@
+.Button-search {
+  color: white;
+  cursor: pointer;
+  width: 65%;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 20px;
+  background: rgba(255,255,255,.2);
+  border: 0px;
+}
+
+.Button-search:active, .Button-search:hover {
+  background-color: #35555d;
+}

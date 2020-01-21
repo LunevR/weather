@@ -22,7 +22,7 @@ class CurrentDate extends Component {
         <div className="Current-date-info">
           <span>Min { this.props.minTemp || '-' }&#176;</span>
           <span>Max { this.props.maxTemp || '-' }&#176;</span>
-          <span>Wind { this.props.wind || '-' } м/с</span>
+          <span>Wind { this.props.wind || '-' } м/с { this.props.windDirection || '-' }</span>
         </div>
       </div>
     );
