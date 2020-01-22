@@ -18,7 +18,7 @@ class App extends Component {
       (position) => {
         const { latitude, longitude } = position.coords;
 
-        axios.get(`http://localhost:3001/api/weather?latt=${latitude}&long=${longitude}`)
+        axios.get(`https://yaweatherapi.herokuapp.com/api/weather?latt=${latitude}&long=${longitude}`)
           .then(res => {
             const { data } = res;
 
