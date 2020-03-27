@@ -1,17 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import './index.css';
 
-class Button extends Component {
-  render() {
-    return (
-      <button
-        className="Button-search"
-        onClick={ this.props.click }
-      >
-        { this.props.text || 'Button' }
-      </button>
-    );
-  }
+Button.propTypes = {
+  click: PropTypes.func,
+  text: PropTypes.string,
+};
+
+function Button({ click, text }) {
+  return (
+    <button
+      className="Button-search"
+      onClick={ click }
+    >
+      { text }
+    </button>
+  );
+}
+
+Button.defaultProps = {
+  click: () => {},
+  text: 'Button',
 }
 
 export default Button;

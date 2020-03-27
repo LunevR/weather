@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
 import Header from './components/Weather/Header/index.jsx';
 import CurrentDate from './components/Weather/CurrentDate/index.jsx';
 import NextDate from './components/Weather/NextDate/index.jsx';
 import Button from './components/Common/Button/index.jsx';
 import axios from 'axios';
+import './App.css';
 
 class App extends Component {
   state = {
@@ -18,7 +18,7 @@ class App extends Component {
       (position) => {
         const { latitude, longitude } = position.coords;
 
-        axios.get(`https://yaweatherapi.herokuapp.com/api/weather?latt=${latitude}&long=${longitude}`)
+        axios.get(`http://localhost:3001/api/weather?latt=${latitude}&long=${longitude}`)
           .then(res => {
             const { data } = res;
 
@@ -41,17 +41,25 @@ class App extends Component {
     for (let i = 0; i < this.state.countExtraDays; i++) {
       const info = this.state.nextDays[i];
 
-      days.push(
-        <NextDate
-          key={ i + 1 }
-          dayDiff={ i + 1 }
-          temp={ info ? info.temp : undefined }
-          minTemp={ info ? info.minTemp : undefined }
-          maxTemp={ info ? info.maxTemp : undefined }
-          wind={ info ? info.wind : undefined }
-          windDirection={ info ? info.windDirection : undefined }
-          img={ info ? info.img : undefined }
-        />);
+      if (info) {
+        days.push(
+          <NextDate
+            key={ i + 1 }
+            dayDiff={ i + 1 }
+            temp={ info.temp }
+            minTemp={ info.minTemp }
+            maxTemp={ info.maxTemp }
+            wind={ info.wind }
+            windDirection={ info.windDirection }
+            img={ info.img }
+          />);
+        } else {
+          days.push(
+            <NextDate
+              key={ i + 1 }
+              dayDiff={ i + 1 }
+            />);
+        }
     }
 
     return days;

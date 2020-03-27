@@ -1,29 +1,48 @@
-import React, { Component } from 'react';
-import './index.css';
+import React from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
+import './index.css';
 
-class NextDate extends Component {
-  render() {
-    return (
-      <div className="Next-date">
-        <div className="Next-date-main">
-          <div className="Next-date-day">{ moment().add(this.props.dayDiff, 'days').format('DD MMM') }</div>
-          <div className="Next-date-degree">{ this.props.temp || '-' }&#176;</div>
-          <div className="Next-date-type">
-            <img
-              src={ this.props.img ? 'https://www.metaweather.com/static/img/weather/' + this.props.img + '.svg' : '' }
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="Next-date-info">
-          <span>Min { this.props.minTemp || '-' }&#176;</span>
-          <span>Max { this.props.maxTemp || '-' }&#176;</span>
-          <span>Wind { this.props.wind || '-' } м/с { this.props.windDirection || '' }</span>
+NextDate.propTypes = {
+  dayDiff: PropTypes.number,
+  img: PropTypes.string,
+  temp: PropTypes.number,
+  minTemp: PropTypes.number,
+  maxTemp: PropTypes.number,
+  wind: PropTypes.number,
+  windDirection: PropTypes.string,
+};
+
+function NextDate({ dayDiff, img, temp, minTemp, maxTemp, wind, windDirection }) {
+  return (
+    <div className="Next-date">
+      <div className="Next-date-main">
+        <div className="Next-date-day">{ moment().add(dayDiff, 'days').format('DD MMM') }</div>
+        <div className="Next-date-degree">{ temp }&#176;</div>
+        <div className="Next-date-type">
+          <img
+            src={ img ? 'https://www.metaweather.com/static/img/weather/' + img + '.svg' : '' }
+            alt=""
+          />
         </div>
       </div>
-    );
-  }
+      <div className="Next-date-info">
+        <span>Min { minTemp }&#176;</span>
+        <span>Max { maxTemp }&#176;</span>
+        <span>Wind { wind } м/с { windDirection }</span>
+      </div>
+    </div>
+  );
+}
+
+NextDate.defaultProps = {
+  dayDiff: 0,
+  img: '',
+  temp: 0,
+  minTemp: 0,
+  maxTemp: 0,
+  wind: 0,
+  windDirection: '-',
 }
 
 export default NextDate;

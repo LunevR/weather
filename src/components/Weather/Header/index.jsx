@@ -1,18 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import './index.css';
 import moment from 'moment';
 
-class Header extends Component {
-  render() {
-    return (
-      <div className="Header">
-        <div className="Header-city">
-          { this.props.city || 'City' }
-        </div>
-        <div className="Header-date">{ moment().format('dddd DD MMMM') }</div>
+Header.propTypes = {
+  city: PropTypes.string,
+};
+
+function Header({ city }) {
+  return (
+    <div className="Header">
+      <div className="Header-city">
+        { city }
       </div>
-    );
-  }
+      <div className="Header-date">{ moment().format('dddd DD MMMM') }</div>
+    </div>
+  );
+}
+
+
+Header.defaultProps = {
+  city: 'City',
 }
 
 export default Header;
