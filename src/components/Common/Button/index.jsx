@@ -5,13 +5,15 @@ import './index.css';
 Button.propTypes = {
   click: PropTypes.func,
   text: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
-function Button({ click, text }) {
+function Button({ click, text, disabled }) {
   return (
     <button
       className="Button-search"
       onClick={ click }
+      disabled={ disabled }
     >
       { text }
     </button>
@@ -21,6 +23,7 @@ function Button({ click, text }) {
 Button.defaultProps = {
   click: () => {},
   text: 'Button',
+  disabled: false,
 }
 
 export default Button;

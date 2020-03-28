@@ -11,12 +11,17 @@ class App extends Component {
     countExtraDays: 5,
     nextDays: [],
     currentDay: {},
+    button_lock: false,
   }
 
   getWeather = () => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const { latitude, longitude } = position.coords;
+
+        this.setState({
+          button_lock: true,
+        });
 
         axios.get(`http://localhost:3001/api/weather?latt=${latitude}&long=${longitude}`)
           .then(res => {
@@ -26,11 +31,16 @@ class App extends Component {
               city: data.city,
               currentDay: data.currentDay,
               nextDays: data.nextDays,
+              button_lock: false,
             });
           })
       },
       (error) => {
-        console.error('User locked posibility to get geolocation info')
+        this.setState({
+          button_lock: false,
+        });
+
+        console.error('User locked posibility to get geolocation info');
       }
     );
   }
@@ -89,6 +99,7 @@ class App extends Component {
               <Button
                 text="Get weather"
                 click={ this.getWeather }
+                disabled={ this.state.button_lock }
               />
             </div>
           </div>
