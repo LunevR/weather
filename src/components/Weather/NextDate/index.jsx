@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import Type from './../Type/index.jsx';
 import './index.css';
 
 NextDate.propTypes = {
@@ -20,10 +21,7 @@ function NextDate({ dayDiff, img, temp, minTemp, maxTemp, wind, windDirection })
         <div className="Next-date-day">{ moment().add(dayDiff, 'days').format('DD MMM') }</div>
         <div className="Next-date-degree">{ temp }&#176;</div>
         <div className="Next-date-type">
-          <img
-            src={ img ? 'https://www.metaweather.com/static/img/weather/' + img + '.svg' : '' }
-            alt=""
-          />
+          <Type type={ img } />
         </div>
       </div>
       <div className="Next-date-info">

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Type from './../Type/index.jsx';
 import './index.css';
 
 CurrentDate.propTypes = {
@@ -12,18 +13,13 @@ CurrentDate.propTypes = {
 };
 
 function CurrentDate({ img, temp, minTemp, maxTemp, wind, windDirection }) {
-  if (img) {
-    img = <img
-      src={ 'https://www.metaweather.com/static/img/weather/' + img + '.svg' }
-      alt={ img }
-    />
-  }
-
   return (
     <div className="Current-date">
       <div className="Current-date-main">
         <div className="Current-date-degree">{ temp }&#176;</div>
-        <div className="Current-date-type">{ img }</div>
+        <div className="Current-date-type">
+          <Type type={ img } />
+        </div>
       </div>
       <div className="Current-date-info">
         <span>Min { minTemp }&#176;</span>
