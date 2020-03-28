@@ -1,6 +1,6 @@
 const rp = require('request-promise');
 
-exports.getCity = function(latt, long) {
+exports.getCity = async function(latt, long) {
   const options = {
     method: 'GET',
     uri: 'https://www.metaweather.com/api/location/search/',
@@ -10,15 +10,18 @@ exports.getCity = function(latt, long) {
     json: true,
   }
 
-  return rp(options);
+  const cities = await rp(options);
+  const city = cities.shift();
+
+  return city;
 }
 
-exports.getWeather = function(cityId) {
+exports.getWeather = async function(cityId) {
   const options = {
     method: 'GET',
     uri: `https://www.metaweather.com/api/location/${cityId}/`,
     json: true,
   }
 
-  return rp(options);
+  return await rp(options);
 }
